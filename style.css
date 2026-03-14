@@ -1,0 +1,52 @@
+
+header {
+    background-color: #465C69; /* Cor de fundo */
+    color: white; /* Cor do texto */
+    padding: 1rem 2rem; /* Espaçamento interno */
+    display: flex;
+    justify-content: space-between; /* Separa logo e menu */
+    align-items: center; /* Alinha verticalmente */
+    width: 100%;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #B0A1BA;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px; /* Espaço entre itens */
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s; /* Efeito suave */
+}
+
+.sobre{
+    display: flex;
+    padding: 20px;
+    margin: 15px;
+    border-radius: 8px;
+    background-color: #363457;
+    color: white;
+}
+.ifpr{
+    display: flex;
+    padding: 20px;
+    margin: 15px;
+    border-radius: 8px;
+    background-color: #363457;
+    color: white;
+}
+.gostos{
+    display: flex;
+    padding: 20px;
+    margin: 15px;
+    border-radius: 8px;
+    background-color: #363457;
+    color: white;
+}
