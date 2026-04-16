@@ -3,61 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biografia</title>
+    <title>Blog | João Henrique - 3o INFO |</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <header>
-        <h1>João Henrique - 3°INFO</h1>
-        <nav>
-            <ul>
-                <li><a href="sobre">sobre</a></li>
-                <li><a href="ifpr">ifpr</a></li>
-                <li><a href="gostos">gostos</a></li>
-            </ul>
-        </nav>
+        <div class="header-inner">
+            <div class="logo">
+                <!-- o span serve como uma tag de separação para css só que na mesma linha -->
+                <span class="logo-name">João Henrique</span>
+                <span class="logo-tag">3°INFO · IFPR</span>
+            </div>
+            <button class="menu-toggle" aria-label="Abrir menu">
+                <!-- os span estao vazios porque servem apenas pra formar os risquinhos do ícone do menu-->
+                <span></span><span></span><span></span> 
+            </button>
+            <nav id="links">
+                <ul>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#ifpr">IFPR</a></li>
+                    <li><a href="#gostos">Gostos</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <div id="foto">
-        <img src="MinhaFoto.jpg" alt="Minha foto" style="float: left; margin-right: 15px;" width="200">
-    </div>
+    <main>
+        <section class="hero">
+            <div class="foto">
+                <img src="MinhaFoto.jpg" alt="Minha foto" style="float: left; margin-right: 15px;" width="200">
+            </div>
+            <div class="info">
+                <p class="label">Olá, eu sou</p>
+                <h1 class="hero-name">João<br>Henrique</h1>
+                <p class="hero-tags">Estudante de Informática · Cascavel, PR</p>
+            </div>
+        </section>
+        
+        <section class="card" id="sobre">
+            <div class="card-num">01</div>
+            <div class="card-conteudo">
+                <h3>Sobre mim</h3>
+                <p>Eu nasci em 12/11/2009 em Cascavel(pr), fui criado e ainda moro aqui, atualmente moro no bairro Tropical com meus pais e minha irmã.
+                    Cursei todo o Ensino Fundamental em escola privada, no Colégio Sagrada Família, e em 2024 ingressei no IFPR, onde atualmente curso o 3°ano do Ensino Médio
+                    do Curso Técnico Integrado em Informática.
+                </p>
+            </div>
+        </section>
 
-    <div class="sobre">
-        <h3>Sobre mim</h3>
-        <p>Eu nasci em 12/11/2009 em Cascavel(pr), fui criado e ainda moro aqui, atualmente moro no bairro Tropical com meus pais e minha irmã.
-            Cursei todo o Ensino Fundamental em escola privada, no Colégio Sagrada Família, e em 2024 ingressei no IFPR, onde atualmente curso o 3°ano do Ensino Médio
-            do Curso Técnico Integrado em Informática.
-        </p>
-    </div>
-    <div class="ifpr">
-        <h3>IFPR e Informática</h3>
-        <p>Ainda no 9°ano do Fundamental decidi que queria ingressar no IFPR pela minha paixão por informática, cursando o Técnico em Informática eu já iria adquirir uma base para a Graduação e meu futuro na área.
-            Eu sempre gostei de tecnologia desde pequeno, videogames, computadores, construir e inventar coisas novas,
-            e descobri que queria cursar uma graduação na área da informatica, especificamente Engenharia da Computação quando vi uma placa Arduino pela primeira vez.
-        </p>
-    </div>
+        <section class="card" id="ifpr">
+            <div class="card-num">02</div>
+                <h3>IFPR e Informática</h3>
+                <p>Ainda no 9°ano do Fundamental decidi que queria ingressar no IFPR pela minha paixão por informática, cursando o Técnico em Informática eu já iria adquirir uma base para a Graduação e meu futuro na área.
+                    Eu sempre gostei de tecnologia desde pequeno, videogames, computadores, construir e inventar coisas novas,
+                    e descobri que queria cursar uma graduação na área da informatica, especificamente Engenharia da Computação quando vi uma placa Arduino pela primeira vez.
+                </p>
+        </section>
 
-    <div class="gostos">
-        <h3>Meus Gostos</h3>
-        <p><ol>
-            <li>Musica</li>
-                <h5>Artistas:</h5>
-                <ul>Deftones</ul>
-                <ul>Daniel Ceasar</ul>
-                <ul>Mac DeMarco</ul>
-            <li>Academia</li>
-                <h5>Exercícios:</h5>
-                <ul>Crossover</ul>
-                <ul>Remada Serrote</ul>
-                <ul>Rosca Scott</ul>
-            <li>Gatronomia</li>
-                <h5>Comidas:</h5>
-                <ul>Batata Frita</ul>
-                <ul>Frango a Parmegiana</ul>
-                <ul>Churrasco</ul>
-        </ol></p>
-    </div>
+        <section class="card" id="gostos">
+            <div class="card-num">03</div>
+                <h3>Meus Gostos</h3>
+                <p><ol>
+                    <div class="gosto-item">
+                    <div class="gosto-icon">🎵</div>
+                        <li>Musica</li>
+                            <h5>Artistas:</h5>
+                            <ul>Deftones</ul>
+                            <ul>Daniel Ceasar</ul>
+                            <ul>Mac DeMarco</ul>
+                    </div>
+
+                    <div class="gosto-item">
+                    <div class="gosto-icon">🏋️</div>
+                        <li>Academia</li>
+                            <h5>Exercícios:</h5>
+                            <ul>Crossover</ul>
+                            <ul>Remada Serrote</ul>
+                            <ul>Rosca Scott</ul>
+                    </div>
+
+                    <div class="gosto-item">
+                    <div class="gosto-icon">🍽️</div>
+                        <li>Gatronomia</li>
+                            <h5>Comidas:</h5>
+                            <ul>Batata Frita</ul>
+                            <ul>Frango a Parmegiana</ul>
+                            <ul>Churrasco</ul>
+                    </div>
+                </ol></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>João Henrique · 3°INFO · IFPR Cascavel</p>
+    </footer>
 
 </body>
 </html>

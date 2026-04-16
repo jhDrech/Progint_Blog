@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>João Henrique | 3°INFO</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <div class="logo">
+                <span class="logo-name">João Henrique</span>
+                <span class="logo-tag">3°INFO · IFPR</span>
+            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+                <span></span><span></span><span></span>
+            </button>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#ifpr">IFPR</a></li>
+                    <li><a href="#gostos">Gostos</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-photo">
+                <img src="MinhaFoto.jpg" alt="Foto de João Henrique" />
+            </div>
+            <div class="hero-text">
+                <p class="hero-label">Olá, eu sou</p>
+                <h1 class="hero-name">João<br>Henrique</h1>
+                <p class="hero-sub">Estudante de Informática · Cascavel, PR</p>
+            </div>
+        </section>
+
+        <section class="card" id="sobre">
+            <div class="card-label">01</div>
+            <h2>Sobre mim</h2>
+            <p>
+                Nasci em 12/11/2009 em Cascavel (PR), fui criado e ainda moro aqui, no bairro Tropical, com meus pais e minha irmã.
+                Cursei todo o Ensino Fundamental em escola privada, no Colégio Sagrada Família, e em 2024 ingressei no IFPR, onde
+                atualmente curso o 3° ano do Ensino Médio do Curso Técnico Integrado em Informática.
+            </p>
+        </section>
+
+        <section class="card" id="ifpr">
+            <div class="card-label">02</div>
+            <h2>IFPR e Informática</h2>
+            <p>
+                Ainda no 9° ano do Fundamental, decidi que queria ingressar no IFPR pela minha paixão por informática. Cursando
+                o Técnico em Informática, já adquiriria uma base para a graduação e meu futuro na área. Sempre gostei de tecnologia
+                desde pequeno — videogames, computadores, construir e inventar coisas novas. Descobri que queria cursar Engenharia
+                da Computação quando vi uma placa Arduino pela primeira vez.
+            </p>
+        </section>
+
+        <section class="card" id="gostos">
+            <div class="card-label">03</div>
+            <h2>Meus Gostos</h2>
+            <div class="gostos-grid">
+
+                <div class="gosto-item">
+                    <div class="gosto-icon">🎵</div>
+                    <h3>Música</h3>
+                    <ul>
+                        <li>Deftones</li>
+                        <li>Daniel Caesar</li>
+                        <li>Mac DeMarco</li>
+                    </ul>
+                </div>
+
+                <div class="gosto-item">
+                    <div class="gosto-icon">🏋️</div>
+                    <h3>Academia</h3>
+                    <ul>
+                        <li>Crossover</li>
+                        <li>Remada Serrote</li>
+                        <li>Rosca Scott</li>
+                    </ul>
+                </div>
+
+                <div class="gosto-item">
+                    <div class="gosto-icon">🍽️</div>
+                    <h3>Gastronomia</h3>
+                    <ul>
+                        <li>Batata Frita</li>
+                        <li>Frango à Parmegiana</li>
+                        <li>Churrasco</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>João Henrique · 3°INFO · IFPR Cascavel</p>
+    </footer>
+
+    <script>
+        const toggle = document.getElementById('menuToggle');
+        const nav = document.getElementById('mainNav');
+        toggle.addEventListener('click', () => {
+            nav.classList.toggle('open');
+            toggle.classList.toggle('active');
+        });
+        // Fecha o menu ao clicar num link
+        nav.querySelectorAll('a').forEach(a => {
+            a.addEventListener('click', () => {
+                nav.classList.remove('open');
+                toggle.classList.remove('active');
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,52 +1,285 @@
+/* BASEADO NO ARQUIVO DO CLAUDE */
 
-header {
-    background-color: #465C69; /* Cor de fundo */
-    color: white; /* Cor do texto */
-    padding: 1rem 2rem; /* Espaçamento interno */
-    display: flex;
-    justify-content: space-between; /* Separa logo e menu */
-    align-items: center; /* Alinha verticalmente */
-    width: 100%;
+/* =============================================
+   1. VARIÁVEIS DO SISTEMA (:root)
+   ============================================= */
+   /* usado para que, no resto do código se use apenas estas variáveis,
+    deixando a manutenção e o entendimento mais fáceis. */
+:root {
+    /* Paleta de Cores */
+    --bg-color:      #0f0e17; /* Fundo principal */
+    --surface-color: #1a1828; /* Fundo dos cards */
+    --accent-color:  #c8a96e; /* Dourado para detalhes */
+    --accent-purple: #7c6fa0; /* Roxo para bordas e brilho */
+    --text-main:     #e8e4f0; /* Texto principal */
+    --text-muted:    #8a849e; /* Texto secundário */
+    --border-color:  #2e2a45; /* Linhas divisórias */
+
+    --font-main: 'Syne', sans-serif;
+    --font-mono: 'Space Mono', monospace;
+
+    --max-width: 900px; /* largura máxima do site */
+    --radius: 12px;  /* borda padrão */
+    /* --transition: Define a velocidade (0.3s) e o ritmo (cubic-bezier) das animações de hover e cliques. */
+    --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+}
+
+/* =============================================
+   2. RESET E ESTILOS GLOBAIS
+   ============================================= */
+*, *::before, *::after { /* seleciona tudo do site e coloca os padrões abaixo: */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* "scroll suave" */
 }
 
 body {
-  font-family: "Roboto", sans-serif;
-  background-color: #B0A1BA;
+    /* com o var(), as propriedades são definidas de acordo com as variáveis definidas no (:root) */
+    background-color: var(--bg-color);
+    color: var(--text-main); 
+    font-family: var(--font-main); /* define a fonte padrão */
+    line-height: 1.6; /* espaçamento das linhas */
+
+    /* define um granulado para o fundo do site criando uma imagem no fundo: */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.02'/%3E%3C/svg%3E");
 }
 
-nav ul {
-    list-style: none;
+/* =============================================
+   3. CABEÇALHO (HEADER)
+   ============================================= */
+header {
+    position: sticky; /* mantém o header fixo no topo */
+    top: 0;
+    background-color: rgba(15, 14, 23, 0.8);
+    backdrop-filter: blur(10px); /* efeito blur no fundo do header */
+    border-bottom: 1px solid var(--border-color);
+    z-index: 1000; /* esse cara garante que o header fique por cima de todos os elementos do site */
+}
+
+.header-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
     display: flex;
-    gap: 20px; /* Espaço entre itens */
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-name {
+    font-weight: 800;
+    font-size: 1.1rem;
+    letter-spacing: -0.02em;
+}
+
+.logo-tag {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--accent-color);
+    text-transform: uppercase;
+}
+
+/* Navegação */
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
 }
 
 nav a {
     text-decoration: none;
-    color: white;
-    transition: color 0.3s; /* Efeito suave */
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    transition: var(--transition);
 }
 
-.sobre{
-    display: flex;
-    padding: 20px;
-    margin: 15px;
-    border-radius: 8px;
-    background-color: #363457;
-    color: white;
+nav a:hover {
+    color: var(--accent-color);
 }
-.ifpr{
-    display: flex;
-    padding: 20px;
-    margin: 15px;
-    border-radius: 8px;
-    background-color: #363457;
-    color: white;
+
+/* Botão Menu (Mobile) */
+.menu-toggle {
+    display: none; /* Escondido no Desktop */
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
-.gostos{
+
+.menu-toggle span {
+    width: 25px;
+    height: 2px;
+    background-color: var(--text-main);
+    border-radius: 2px;
+}
+
+/* =============================================
+   4. CONTEÚDO PRINCIPAL (MAIN)
+   ============================================= */
+main {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+}
+
+/* Seção Hero */
+.hero {
     display: flex;
-    padding: 20px;
-    margin: 15px;
-    border-radius: 8px;
-    background-color: #363457;
-    color: white;
+    align-items: center;
+    gap: 2.5rem;
+    padding-bottom: 4rem;
+}
+
+.foto img {
+    border-radius: var(--radius);
+    border: 2px solid var(--accent-purple);
+    box-shadow: 0 10px 30px rgba(124, 111, 160, 0.2);
+}
+
+.label {
+    font-family: var(--font-mono);
+    color: var(--accent-color);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+.hero-name {
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    line-height: 0.9;
+    margin: 0.5rem 0;
+    font-weight: 800;
+}
+
+.hero-tags {
+    font-family: var(--font-mono);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* Cards de Conteúdo */
+.card {
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    transition: var(--transition);/* usa a animação lá do root */
+}
+
+.card:hover {
+    border-color: var(--accent-purple);
+    transform: translateY(-5px);
+}
+
+.card-num {
+    font-family: var(--font-mono);
+    color: var(--accent-color);
+    font-size: 0.7rem;
+    margin-bottom: 0.5rem;
+    opacity: 0.6;
+}
+
+.card h3 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    color: var(--text-main);
+}
+
+.card p {
+    color: var(--text-muted);
+    font-size: 1rem;
+}
+
+.gosto-item {
+    background-color: var(--bg-color);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+}
+
+.gosto-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.gosto-item li {
+    list-style: none;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+}
+
+.gosto-item h5 {
+    font-family: var(--font-mono);
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+}
+
+.gosto-item ul {
+    list-style: none;
+    font-size: 0.9rem;
+}
+
+/* =============================================
+   5. RODAPÉ (FOOTER)
+   ============================================= */
+footer {
+    text-align: center;
+    padding: 3rem;
+    border-top: 1px solid var(--border-color);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+/* =============================================
+   6. RESPONSIVIDADE (@media)
+   ============================================= */
+
+/* Tablet e Celulares Grandes */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex; /* Mostra o botão hambúrguer */
+    }
+
+    nav {
+        display: none; /* Aqui você precisaria de um JS para 'toggle' */
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+
+    .foto img {
+        width: 150px; /* Foto menor no mobile */
+    }
+}
+
+/* Celulares Pequenos */
+@media (max-width: 480px) {
+    main {
+        padding: 1.5rem 1rem;
+    }
+
+    .card {
+        padding: 1.5rem;
+    }
+
+    .hero-name {
+        font-size: 2.2rem;
+    }
 }
